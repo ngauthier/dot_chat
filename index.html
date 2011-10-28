@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+    <title>Dot Chat</title>
+  </head>
+
+  <body>
+    <h1>DUH DUH DUH DOT CHAT</h1>
+    <textarea>digraph G { hello -> world }</textarea>
+    <input type='button' value='do make'/>
+    <div id='output'>output</div>
+  </body>
+
+  <script type="text/javascript">
+    $(function() {
+      $('input').bind('click', function() {
+        var dot = $('textarea').val();
+        $.post('/dot', {dot: dot}, function(response) {
+          var svg = $(response).find('svg').first();
+          console.log(svg);
+          $('#output').html(svg);
+        });
+      });
+    });
+  </script>
+</html>
