@@ -1,4 +1,4 @@
-= dot-chat
+# dot-chat
 
 Graphviz powered chat.
 
