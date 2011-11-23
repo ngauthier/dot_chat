@@ -16,7 +16,7 @@
     $(function() {
       $('input').bind('click', function() {
         var dot = $('textarea').val();
-        $.post('/dot', {dot: dot}, function(response) {
+        $.post('/dot', dot, function(response) {
           var svg = $(response).find('svg').first();
           console.log(svg);
           $('#output').html(svg);
